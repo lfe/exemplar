@@ -1,4 +1,4 @@
-# exemplar
+# exemplar [![Build Status](https://travis-ci.org/lfex/exemplar.png?branch=master)](https://travis-ci.org/lfex/exemplar)
 
 <a href="https://raw.github.com/oubiwann/exemplar/master/resources/images/juggernaut-large.png"><img src="resources/images/juggernaut-tiny.png"/></a><br/>
 
