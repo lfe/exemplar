@@ -1,12 +1,8 @@
 (defmodule unit-exemplar-html-tests
-  (export all)
-  (import
-    (from lfeunit-util
-      (check-failed-assert 2)
-      (check-wrong-assert-exception 2))))
+  (export all))
 
-(include-lib "deps/lfeunit/include/lfeunit-macros.lfe")
-(include-file "include/html-macros.lfe")
+(include-lib "ltest/include/ltest-macros.lfe")
+(include-file "exemplar/include/html-macros.lfe")
 
 (deftest make-html
   (is-equal '"<br />"

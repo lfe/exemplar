@@ -52,7 +52,7 @@ directory of this project when you run ``make deps``:
 
 * [LFE](https://github.com/rvirding/lfe) (Lisp Flavored Erlang; needed only
   to compile)
-* [lfeunit](https://github.com/lfe/lfeunit) (needed only to run the unit tests)
+* [ltest](https://github.com/lfex/ltest) (needed only to run the tests)
 
 
 ## Installation
