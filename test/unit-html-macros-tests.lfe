@@ -3,7 +3,7 @@
   (export all))
 
 (include-lib "ltest/include/ltest-macros.lfe")
-(include-file "exemplar/include/html-macros.lfe")
+(include-lib "exemplar/include/html-macros.lfe")
 
 (deftest defelem
   (is-equal '"<span>my content</span>" (span '"my content")))

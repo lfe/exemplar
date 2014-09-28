@@ -3,7 +3,7 @@
   (export all))
 
 (include-lib "ltest/include/ltest-macros.lfe")
-(include-lib "exampler/include/macros.lfe")
+(include-lib "exemplar/include/macros.lfe")
 
 (defelem special)
 

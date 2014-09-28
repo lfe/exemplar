@@ -1,9 +1,10 @@
 (defmodule exemplar
   (export all)
   (import
-    (from lutil
+    (from lutil-math
+      (even? 1))
+    (from lutil-type
       (atom? 1)
-      (even? 1)
       (list? 1)
       (partition-list 1))))
 
@@ -53,7 +54,7 @@
   (++ (opening-bracket)
       tag
       (space)
-      (: lutil strip (attrs-to-string attrs))
+      (: lutil-text strip (attrs-to-string attrs))
       bracket))
 
 (defun opening-tag (tag)
