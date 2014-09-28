@@ -1,13 +1,13 @@
 (defmodule exemplar-html
   (export all)
   (import
-    (from lfe-utils
+    (from lutil-type
       (string? 1)
       (list? 1))
     (from exemplar
       (attrs? 1))))
 
-(include-file "include/html-macros.lfe")
+(include-lib "exemplar/include/html-macros.lfe")
 
 (defun make-html (tag)
   (: exemplar-xml make-xml tag))
