@@ -1,4 +1,5 @@
 (defmodule unit-exemplar-xml-tests
+  (behaviour ltest-unit)
   (export all))
 
 (include-lib "ltest/include/ltest-macros.lfe")
