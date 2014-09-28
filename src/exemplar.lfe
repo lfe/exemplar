@@ -8,7 +8,7 @@
       (list? 1)
       (partition-list 1))))
 
-(include-file "include/macros.lfe")
+(include-lib "exemplar/include/macros.lfe")
 
 (defun space () '" ")
 
