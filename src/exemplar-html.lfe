@@ -1,7 +1,7 @@
 (defmodule exemplar-html
   (export all)
   (import
-    (from lfe-utils
+    (from lutil
       (string? 1)
       (list? 1))
     (from exemplar

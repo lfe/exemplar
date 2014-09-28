@@ -1,7 +1,7 @@
 (defmodule exemplar
   (export all)
   (import
-    (from lfe-utils
+    (from lutil
       (atom? 1)
       (even? 1)
       (list? 1)
@@ -53,7 +53,7 @@
   (++ (opening-bracket)
       tag
       (space)
-      (: lfe-utils strip (attrs-to-string attrs))
+      (: lutil strip (attrs-to-string attrs))
       bracket))
 
 (defun opening-tag (tag)
