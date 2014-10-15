@@ -1,4 +1,4 @@
-(defmodule exemplar-html
+(defmodule exemplar-html-util
   (export all)
   (import
     (from lutil-type
