@@ -106,7 +106,7 @@ check-all: get-deps compile-no-deps
 
 check: check-unit-with-deps
 
-check-travis: $(LFETOOL) check
+check-travis: get-lfetool check
 
 push-all:
 	@echo "Pusing code to github ..."
