@@ -41,6 +41,17 @@ get-version:
 	-eval "lfe_io:format(\"~p~n\",['exemplar-util':'get-versions'()])." \
 	-noshell -s erlang halt
 
+get-erllibs:
+	@echo "ERL_LIBS from lfetool:"
+	@ERL_LIBS=$(ERL_LIBS) $(LFETOOL) info erllibs
+
+get-codepath:
+	@echo "Code path:"
+	@ERL_LIBS=$(ERL_LIBS) \
+	erl -eval "io:format(\"~p~n\", [code:get_path()])." -noshell -s erlang halt
+
+debug: get-version get-erllibs get-codepath
+
 $(EXPM): $(BIN_DIR)
 	@[ -f $(EXPM) ] || \
 	PATH=$(SCRIPT_PATH) lfetool install expm $(BIN_DIR)
@@ -116,7 +127,7 @@ check-all: get-deps compile-no-deps clean-eunit
 
 check: check-unit-with-deps
 
-check-travis: compile compile-tests check-unit-only
+check-travis: debug compile compile-tests check-unit-only
 
 push-all:
 	@echo "Pusing code to github ..."
