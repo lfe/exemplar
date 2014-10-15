@@ -33,9 +33,10 @@ get-lfetool: $(BIN_DIR)
 	curl -L -o ./lfetool https://raw.githubusercontent.com/billosys/lfetool/milestone-v1.3/lfetool && \
 	chmod 755 ./lfetool && \
 	mv ./lfetool $(BIN_DIR)
-	### TEMP - move if this works
-	mkdir -p ebin
-	cp src/exemplar.app.src ebin/exemplar.app
+
+copy-appsrc:
+	@mkdir -p $(OUT_DIR)
+	@cp src/exemplar.app.src ebin/exemplar.app
 
 get-version:
 	@PATH=$(SCRIPT_PATH) $(LFETOOL) info version
