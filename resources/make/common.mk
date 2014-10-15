@@ -17,7 +17,7 @@ LFETOOL=$(BIN_DIR)/lfetool
 else
 LFETOOL=lfetool
 endif
-ERL_LIBS=$(shell $(LFETOOL) info erllibs):.:..
+ERL_LIBS = .:..:../exemplar:$(shell $(LFETOOL) info erllibs)
 OS := $(shell uname -s)
 ifeq ($(OS),Linux)
         HOST=$(HOSTNAME)
@@ -55,7 +55,30 @@ clean-ebin:
 	@rm -f $(OUT_DIR)/*.beam
 
 clean-eunit:
-	@PATH=$(SCRIPT_PATH) $(LFETOOL) tests clean
+	-@PATH=$(SCRIPT_PATH) $(LFETOOL) tests clean
+
+compile-tests: clean-eunit
+	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) tests build
+
+repl: compile
+	@which clear >/dev/null 2>&1 && clear || printf "\033c"
+	@echo "Starting an LFE REPL ..."
+	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) repl
+
+repl-no-deps: compile-no-deps
+	@which clear >/dev/null 2>&1 && clear || printf "\033c"
+	@echo "Starting an LFE REPL ..."
+	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) repl
+
+shell: compile
+	@which clear >/dev/null 2>&1 && clear || printf "\033c"
+	@echo "Starting an Erlang shell ..."
+	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) erl
+
+shell-no-deps: compile-no-deps
+	@which clear >/dev/null 2>&1 && clear || printf "\033c"
+	@echo "Starting an Erlang shell ..."
+	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) erl
 
 compile: get-deps clean-ebin
 	@echo "Compiling project code and dependencies ..."
@@ -70,29 +93,16 @@ compile-no-deps: clean-ebin
 	rebar.cmd compile skip_deps=true || \
 	PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) rebar compile skip_deps=true
 
-compile-tests:
-	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) tests build
-
-repl: compile
-	@which clear >/dev/null 2>&1 && clear || printf "\033c"
-	@echo "Starting shell ..."
-	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) repl
-
-repl-no-deps: compile-no-deps
-	@which clear >/dev/null 2>&1 && clear || printf "\033c"
-	@echo "Starting shell ..."
-	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) repl
-
 clean: clean-ebin clean-eunit
 	@which rebar.cmd >/dev/null 2>&1 && rebar.cmd clean || rebar clean
 
-check-unit-only:
+check-unit-only: clean-eunit
 	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) tests unit
 
-check-integration-only:
+check-integration-only: clean-eunit
 	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) tests integration
 
-check-system-only:
+check-system-only: clean-eunit
 	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) tests system
 
 check-unit-with-deps: get-deps compile compile-tests check-unit-only
@@ -101,12 +111,12 @@ check-integration: compile check-integration-only
 check-system: compile check-system-only
 check-all-with-deps: compile check-unit-only check-integration-only \
 	check-system-only
-check-all: get-deps compile-no-deps
+check-all: get-deps compile-no-deps clean-eunit
 	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) tests all
 
 check: check-unit-with-deps
 
-check-travis: get-lfetool check
+check-travis: compile compile-tests check-unit-only
 
 push-all:
 	@echo "Pusing code to github ..."
