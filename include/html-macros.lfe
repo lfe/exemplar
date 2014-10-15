@@ -3,13 +3,13 @@
     `(progn
       (defun ,tag ()
         (lists:flatten
-          (exemplar-html:make-html (atom_to_list ',tag))))
+          (exemplar-html-util:make-html (atom_to_list ',tag))))
       (defun ,tag (content)
         (lists:flatten
-          (exemplar-html:make-html (atom_to_list ',tag) content)))
+          (exemplar-html-util:make-html (atom_to_list ',tag) content)))
       (defun ,tag (attrs content)
         (lists:flatten
-          (exemplar-html:make-html (atom_to_list ',tag) attrs content))))))
+          (exemplar-html-util:make-html (atom_to_list ',tag) attrs content))))))
 
 ;; root
 (defelem !doctype)

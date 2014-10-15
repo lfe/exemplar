@@ -7,8 +7,6 @@
     (from exemplar
       (attrs? 1))))
 
-(include-lib "exemplar/include/html-macros.lfe")
-
 (defun make-html (tag)
   (: exemplar-xml make-xml tag))
 
