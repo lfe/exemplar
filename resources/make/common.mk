@@ -38,6 +38,13 @@ get-version:
 	@PATH=$(SCRIPT_PATH) $(LFETOOL) info version
 	@echo "Erlang/OTP, LFE, & library versions:"
 	@ERL_LIBS=$(ERL_LIBS) PATH=$(SCRIPT_PATH) erl \
+	-eval "lfe_io:format(\"~p~n\",[lutil:'get-version'()])." \
+	-noshell -s erlang halt
+
+get-versions:
+	@PATH=$(SCRIPT_PATH) $(LFETOOL) info version
+	@echo "Erlang/OTP, LFE, & library versions:"
+	@ERL_LIBS=$(ERL_LIBS) PATH=$(SCRIPT_PATH) erl \
 	-eval "lfe_io:format(\"~p~n\",['exemplar-util':'get-versions'()])." \
 	-noshell -s erlang halt
 
@@ -50,7 +57,7 @@ get-codepath:
 	@ERL_LIBS=$(ERL_LIBS) \
 	erl -eval "io:format(\"~p~n\", [code:get_path()])." -noshell -s erlang halt
 
-debug: get-version get-erllibs get-codepath
+debug: get-erllibs get-codepath
 
 $(EXPM): $(BIN_DIR)
 	@[ -f $(EXPM) ] || \
