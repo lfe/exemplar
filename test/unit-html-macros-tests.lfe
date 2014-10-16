@@ -1,12 +1,9 @@
 (defmodule unit-html-macros-tests
-  (export all)
-  (import
-    (from lfeunit-util
-      (check-failed-assert 2)
-      (check-wrong-assert-exception 2))))
+  (behaviour ltest-unit)
+  (export all))
 
-(include-lib "deps/lfeunit/include/lfeunit-macros.lfe")
-(include-file "include/html-macros.lfe")
+(include-lib "ltest/include/ltest-macros.lfe")
+(include-lib "exemplar/include/html-macros.lfe")
 
 (deftest defelem
   (is-equal '"<span>my content</span>" (span '"my content")))
@@ -27,6 +24,3 @@
 (deftest link
   (is-equal '"<link rel=\"stylesheet\" src=\"some-url\">"
             (link '(rel "stylesheet" src "some-url"))))
-
-(deftest script
-  )
