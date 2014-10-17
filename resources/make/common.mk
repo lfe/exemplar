@@ -30,7 +30,7 @@ $(BIN_DIR):
 	mkdir -p $(BIN_DIR)
 
 get-lfetool: $(BIN_DIR)
-	curl -L -o ./lfetool https://raw.githubusercontent.com/billosys/lfetool/milestone-v1.3/lfetool && \
+	curl -L -o ./lfetool https://raw.githubusercontent.com/lfe/lfetool/stable/lfetool && \
 	chmod 755 ./lfetool && \
 	mv ./lfetool $(BIN_DIR)
 
