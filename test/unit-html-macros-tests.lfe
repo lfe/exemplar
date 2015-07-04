@@ -25,6 +25,12 @@
   (is-equal "<link rel=\"stylesheet\" src=\"some-url\">"
             (link '(rel "stylesheet" src "some-url"))))
 
+(deftest script
+  (is-equal "<script type=\"text/javascript\" src=\"some-url\"></script>"
+            (script '(type "text/javascript" src "some-url")))
+  (is-equal "<script >some-script-context.Object.fuinction(thinkg);</script>"
+            (script "some-script-context.Object.fuinction(thinkg);")))
+
 (deftest meta
   (is-equal "<meta charset=\"utf-8\">"
             (meta '(charset "utf-8")))

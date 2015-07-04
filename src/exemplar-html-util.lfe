@@ -33,8 +33,12 @@
     (exemplar:non-closing-tag "link" attrs))
   (("meta" attrs)
     (exemplar:non-closing-tag "meta" attrs))
-  (("script" attrs)
-    (make-html "script" attrs ""))
+  (("script" content-or-attrs)
+    (cond
+     ((attrs? content-or-attrs)
+      (make-html "script" content-or-attrs ""))
+     ((string? content-or-attrs)
+      (make-html "script" '() content-or-attrs))))
   ((tag content-or-attrs)
    (let ((data (exemplar-xml:make-xml tag content-or-attrs)))
      (cond
