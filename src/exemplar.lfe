@@ -4,11 +4,10 @@
     (from lutil-math
       (even? 1))
     (from lutil-type
-      (atom? 1)
-      (list? 1)
       (partition-list 1))))
 
 (include-lib "exemplar/include/macros.lfe")
+(include-lib "clj/include/predicates.lfe")
 
 (defun space () " ")
 

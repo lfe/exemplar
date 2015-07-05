@@ -1,11 +1,10 @@
 (defmodule exemplar-html-util
   (export all)
   (import
-    (from lutil-type
-      (string? 1)
-      (list? 1))
     (from exemplar
       (attrs? 1))))
+
+(include-lib "clj/include/predicates.lfe")
 
 (defun make-html (tag)
   (exemplar-xml:make-xml tag))
