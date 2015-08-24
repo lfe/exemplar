@@ -17,7 +17,7 @@
 
 [![][html5_logo]][html5_logo]
 
-[html5_logo]: resources/images/HTML5_Logo_512.png
+[html5_logo]: resources/images/HTML5_Logo_tiny.png
 
 Right now, only HTML5 is supported. Feel free to submit pull requests to support
 older/different tags/elements.
