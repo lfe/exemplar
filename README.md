@@ -126,7 +126,7 @@ up as a dependency, create a module and ``include-lib`` the macros file:
 (defmodule my-project
   (export all))
 
-(include-lib "deps/exemplar/include/macros.lfe")
+(include-lib "exemplar/include/xml-macros.lfe")
 
 (defelem custom-elem)
 ```
@@ -155,7 +155,7 @@ generates functions with three different arities. For instance,
 (defelem div)
 ```
 
-The ``defelem`` macro in ``include/macros.lfe`` generates three functions with
+The ``defelem`` macro in ``include/xml-macros.lfe`` generates three functions with
 this definition:
 
 * ``div/0``

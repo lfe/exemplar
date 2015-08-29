@@ -6,7 +6,7 @@
     (from lutil-type
       (partition-list 1))))
 
-(include-lib "exemplar/include/macros.lfe")
+(include-lib "exemplar/include/xml-macros.lfe")
 (include-lib "clj/include/predicates.lfe")
 
 (defun space () " ")
