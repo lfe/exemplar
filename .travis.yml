@@ -10,6 +10,6 @@ notifications:
     - duncan@cogitat.io
 otp_release:
   - 18.0
-  - 17.1
+  - 17.5
   - R16B03
   - R15B03
