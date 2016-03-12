@@ -26,6 +26,10 @@ shell:
 
 clean:
 	@rebar3 clean
+	@rm ebin/*
+	@rm -rf _build/default/lib/$(PROJECT)
+
+clean-all: clean
 	@rebar3 lfe clean
 
 $(SLATE_GIT_HACK):
@@ -39,12 +43,12 @@ docs-clean:
 	@echo "\nCleaning build directories ..."
 	@rm -rf $(GUIDE_BUILD_DIR) $(API_PROD_DIR) $(GUIDE_PROD_DIR)
 
-docs: docs-clean $(SLATE_GIT_HACK)
+docs: clean compile docs-clean $(SLATE_GIT_HACK)
 	@echo "\nBuilding docs ...\n"
 	@echo
 	@rebar3 lfe lodox
 	@echo
-	@cd $(GUIDE_DIR) && bundle exec middleman build --clean --verbose
+	@cd $(GUIDE_DIR) && bundle exec middleman build --clean
 	@mkdir $(GUIDE_PROD_DIR)
 	@cp -r $(GUIDE_BUILD_DIR)/* $(GUIDE_PROD_DIR)/
 
@@ -63,7 +67,7 @@ setup-temp-repo: $(SLATE_GIT_HACK)
 
 teardown-temp-repo:
 	@echo "\nTearing down temporary gh-pages repos ..."
-	@rm $(DOCS_DIR)/.git $(DOCS_DIR)/Gemfile.lock
+	@rm $(DOCS_DIR)/.git $(GUIDE_DIR)/Gemfile.lock
 	@rm -rf $(DOCS_PROD_DIR)/.git $(DOCS_PROD_DIR)/*/.git
 
 publish-docs: docs setup-temp-repo
