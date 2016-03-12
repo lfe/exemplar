@@ -11,3 +11,4 @@ ebin/*
 erl_crash.dump
 .rebar
 bin
+_build/*
