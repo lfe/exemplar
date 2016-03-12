@@ -1,8 +1,8 @@
 %% -*- erlang -*-
-{application, 'exemplar',
+{application, exemplar,
  [
   %% A quick description of the application.
-  {description, "HTML as S-Expressions for LFE"},
+  {description, "Markup Language Expressions for LFE: creating HTML with S-expressions on the Erlang VM."},
 
   %% The version of the application
   {vsn, "0.3.0"},
@@ -10,7 +10,7 @@
   %% All modules used by the application.
   {modules,
    [
-    'exemplar'
+    exemplar
    ]},
 
   %% All of the registered names the application uses. This can be ignored.

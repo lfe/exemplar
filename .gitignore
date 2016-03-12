@@ -12,3 +12,6 @@ erl_crash.dump
 .rebar
 bin
 _build/*
+docs/master/current/api
+docs/master/current/user-guide
+docs/user-guide/build/
