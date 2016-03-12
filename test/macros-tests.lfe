@@ -1,4 +1,4 @@
-(defmodule unit-macros-tests
+(defmodule macros-tests
   (behaviour ltest-unit)
   (export all))
 

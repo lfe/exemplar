@@ -1,4 +1,4 @@
-(defmodule unit-html-macros-tests
+(defmodule html-macros-tests
   (behaviour ltest-unit)
   (export all))
 

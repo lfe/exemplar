@@ -1,4 +1,4 @@
-(defmodule unit-exemplar-html-util-tests
+(defmodule exemplar-html-util-tests
   (behaviour ltest-unit)
   (export all))
 

@@ -1,4 +1,4 @@
-(defmodule unit-exemplar-xml-tests
+(defmodule exemplar-xml-tests
   (behaviour ltest-unit)
   (export all))
 

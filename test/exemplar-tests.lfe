@@ -1,4 +1,4 @@
-(defmodule unit-exemplar-tests
+(defmodule exemplar-tests
   (behaviour ltest-unit)
   (export all))
 
