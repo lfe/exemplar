@@ -28,6 +28,7 @@ The list of tags was obtained from [Mozilla's HTML 5 documentation][mz]
 
 Note that XML namespacing hasn't been explored yet, but *should* be possible.
 
+
 ### Current Status
 
 As you can see in the example usage below, you can use exemplar to build HTML
@@ -52,15 +53,8 @@ Also: "Do you know who I *am*?!"
 
 ## Dependencies
 
-This project assumes that you have [rebar](https://github.com/rebar/rebar)
+This project assumes that you have [rebar3](https://github.com/erlang/rebar3)
 installed somwhere in your ``$PATH``.
-
-This project depends upon the following, which installed to the ``deps``
-directory of this project when you run ``make deps``:
-
-* [LFE](https://github.com/rvirding/lfe) (Lisp Flavored Erlang; needed only
-  to compile)
-* [ltest](https://github.com/lfex/ltest) (needed only to run the tests)
 
 
 ## Installation
@@ -70,15 +64,14 @@ Just add it to your ``rebar.config`` deps:
 ```erlang
 {deps, [
     ...
-    {exemplar, ".*", {git, "git@github.com:lfex/exemplar.git", "master"}}
+    {exemplar, ".*", {git, "git@github.com:lfex/exemplar.git", {tag, "x.y.z"}}
   ]}.
 ```
 
 And then do the usual:
 
 ```bash
-$ rebar get-deps
-$ rebar compile
+$ rebar3 compile
 ```
 
 
@@ -186,14 +179,14 @@ exception error: #(unbound_func #(div 3))
 Since there is no ``#'div/3``. Instead, you will have to do this:
 
 ```lfe
-> (div (list (p "paragraph 1") (p "paragraph 2") (p "paragraph 3")))
+> (div '((p "paragraph 1") (p "paragraph 2") (p "paragraph 3")))
 "<div><p>paragraph 1</p><p>paragraph 2</p><p>paragraph 3</p></div>"
 ```
 
 Another common use case:
 
 ```lfe
-> (ul (list (li "a") (li "b") (li "c")))
+> (ul '((li "a") (li "b") (li "c")))
 "<ul><li>a</li><li>b</li><li>c</li></ul>"
 ```
 
