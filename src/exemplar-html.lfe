@@ -8,13 +8,13 @@
   (exemplar-xml:make-xml tag))
 
 (defun make-html
-  (('"!doctype" data)
+  (("!doctype" data)
     (io_lib:format (++ (handle-doctype data) "~n") '()))
-  (('"link" attrs)
+  (("link" attrs)
     (exemplar:non-closing-tag "link" attrs))
-  (('"meta" attrs)
+  (("meta" attrs)
     (exemplar:non-closing-tag "meta" attrs))
-  (('"script" content-or-attrs)
+  (("script" content-or-attrs)
     (cond
      ((xmplr-util:attrs? content-or-attrs)
       (make-html "script" content-or-attrs ""))
