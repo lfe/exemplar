@@ -31,18 +31,16 @@
          (evens-atoms? (== (length names) (length values))))
     (and (list? data) (and (> len 0) (and (even? len) evens-atoms?)))))
 
-;; XXX rename tp attr->str
-(defun attr-to-string (name value)
+(defun attr->str (name value)
   (++ (atom_to_list name)
       "=\""
       value
       "\" "))
 
-;; XXX rename tp attrs->str
-(defun attrs-to-string (attrs)
+(defun attrs->str (attrs)
   (let (((tuple names values) (partition-list attrs)))
     (lists:concat
-      (lists:zipwith #'attr-to-string/2 names values))))
+      (lists:zipwith #'attr->str/2 names values))))
 
 (defun -opening-tag (tag bracket)
   (++ (opening-bracket)
@@ -53,7 +51,7 @@
   (++ (opening-bracket)
       tag
       (space)
-      (lutil-text:strip (attrs-to-string attrs))
+      (lutil-text:strip (attrs->str attrs))
       bracket))
 
 (defun opening-tag (tag)
@@ -79,3 +77,14 @@
 
 (defun non-closing-tag (tag attrs)
   (-opening-tag tag attrs (closing-bracket)))
+
+
+;;; Backwards-compatible aliases
+
+(defun attr-to-string (name value)
+  "Deprecated; use attr->str instead."
+  (attr->str name value))
+
+(defun attrs-to-string (attrs)
+  "Deprecated; use attrs->str instead."
+  (attrs->str attrs))
