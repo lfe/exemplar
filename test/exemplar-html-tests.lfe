@@ -1,4 +1,4 @@
-(defmodule exemplar-html-util-tests
+(defmodule exemplar-html-tests
   (behaviour ltest-unit)
   (export all))
 
@@ -7,19 +7,19 @@
 
 (deftest make-html
   (is-equal "<br />"
-            (exemplar-html-util:make-html "br")))
+            (exemplar-html:make-html "br")))
 
 (deftest make-html-with-content
   (is-equal "<pre>some code</pre>"
-            (exemplar-html-util:make-html "pre" "some code")))
+            (exemplar-html:make-html "pre" "some code")))
 
 (deftest make-html-with-attrs
   (is-equal "<img src=\"http://url\" />"
-            (exemplar-html-util:make-html "img" '(src "http://url"))))
+            (exemplar-html:make-html "img" '(src "http://url"))))
 
 (deftest make-html-with-attrs-and-content
   (is-equal "<pre class=\"lisp\">some code</pre>"
-            (exemplar-html-util:make-html "pre" '(class "lisp") "some code")))
+            (exemplar-html:make-html "pre" '(class "lisp") "some code")))
 
 (deftest make-html-with-lists
   (let ((html-string (ul (list (li "a") (li "b") (li "c")))))
