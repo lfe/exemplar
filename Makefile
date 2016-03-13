@@ -16,7 +16,7 @@ compile:
 	rebar3 compile
 
 check:
-	@rebar3 eunit
+	@rebar3 as test eunit
 
 repl: compile
 	@$(LFE)
@@ -26,11 +26,10 @@ shell:
 
 clean:
 	@rebar3 clean
-	@rm ebin/*
-	@rm -rf _build/default/lib/$(PROJECT)
+	@rm -rf ebin/* _build/default/lib/$(PROJECT)
 
 clean-all: clean
-	@rebar3 lfe clean
+	@rebar3 as dev lfe clean
 
 $(SLATE_GIT_HACK):
 	@ln -s $(ROOT_DIR)/.git $(DOCS_DIR)
@@ -46,7 +45,7 @@ docs-clean:
 docs: clean compile docs-clean $(SLATE_GIT_HACK)
 	@echo "\nBuilding docs ...\n"
 	@echo
-	@rebar3 lfe lodox
+	@rebar3 as docs lfe lodox
 	@echo
 	@cd $(GUIDE_DIR) && bundle exec middleman build --clean
 	@mkdir $(GUIDE_PROD_DIR)
