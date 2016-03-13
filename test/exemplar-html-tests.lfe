@@ -22,5 +22,5 @@
             (exemplar-html:make-html "pre" '(class "lisp") "some code")))
 
 (deftest make-html-with-lists
-  (let ((html-string (ul (list (li "a") (li "b") (li "c")))))
-    (is-equal "<ul><li>a</li><li>b</li><li>c</li></ul>" html-string)))
+  (is-equal "<ul><li>a</li><li>b</li><li>c</li></ul>"
+            (ul (list (li "a") (li "b") (li "c")))))
