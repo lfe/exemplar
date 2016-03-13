@@ -1,13 +1,11 @@
 (defmodule exemplar
   (export all)
   (import
-    (from lutil-math
-      (even? 1))
     (from lutil-type
       (partition-list 1))))
 
-(include-lib "exemplar/include/xml-macros.lfe")
 (include-lib "clj/include/predicates.lfe")
+(include-lib "exemplar/include/xml-macros.lfe")
 
 (defun space () " ")
 
@@ -29,16 +27,18 @@
 
   If these criteria are not met, the list is not an attr collection."
   (let* ((len (length data))
-         ((tuple names values) (partition-list data))
+         (`#(,names ,values) (partition-list data))
          (evens-atoms? (== (length names) (length values))))
     (and (list? data) (and (> len 0) (and (even? len) evens-atoms?)))))
 
+;; XXX rename tp attr->str
 (defun attr-to-string (name value)
   (++ (atom_to_list name)
       "=\""
       value
       "\" "))
 
+;; XXX rename tp attrs->str
 (defun attrs-to-string (attrs)
   (let (((tuple names values) (partition-list attrs)))
     (lists:concat
