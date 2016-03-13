@@ -44,7 +44,7 @@ docs-clean:
 
 docs-lodox:
 	@echo
-	@rebar3 as docs lfe lodox
+	@rebar3 lfe lodox
 
 docs-slate:
 	@echo
