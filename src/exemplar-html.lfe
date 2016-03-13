@@ -16,7 +16,7 @@
     (exemplar:non-closing-tag "meta" attrs))
   (('"script" content-or-attrs)
     (cond
-     ((exemplar:attrs? content-or-attrs)
+     ((xmplr-util:attrs? content-or-attrs)
       (make-html "script" content-or-attrs ""))
      ((string? content-or-attrs)
       (make-html "script" '() content-or-attrs))))
@@ -25,7 +25,7 @@
      (cond
        ;; if it's a list, it could be a list of elements or it could be a list
        ;; of attr/value pairs
-       ((exemplar:attrs? content-or-attrs)
+       ((xmplr-util:attrs? content-or-attrs)
          (++ (exemplar:self-closing-tag tag content-or-attrs)))
        ;; if it's a string, use the make-xml/2 function, since that's going to
        ;; be content

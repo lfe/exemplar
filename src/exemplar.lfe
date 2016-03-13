@@ -1,8 +1,5 @@
 (defmodule exemplar
-  (export all)
-  (import
-    (from lutil-type
-      (partition-list 1))))
+  (export all))
 
 (include-lib "clj/include/predicates.lfe")
 (include-lib "exemplar/include/xml-macros.lfe")
@@ -20,28 +17,6 @@
       (slash)
       (closing-bracket)))
 
-(defun attrs? (data)
-  "a list of attr/value key pairs has to have an even number of elements. The
-  first element also has to be an atom. In fact, all even-indexed (zero-based
-  counting) elements have to be atoms.
-
-  If these criteria are not met, the list is not an attr collection."
-  (let* ((len (length data))
-         (`#(,names ,values) (partition-list data))
-         (evens-atoms? (== (length names) (length values))))
-    (and (list? data) (and (> len 0) (and (even? len) evens-atoms?)))))
-
-(defun attr->str (name value)
-  (++ (atom_to_list name)
-      "=\""
-      value
-      "\" "))
-
-(defun attrs->str (attrs)
-  (let (((tuple names values) (partition-list attrs)))
-    (lists:concat
-      (lists:zipwith #'attr->str/2 names values))))
-
 (defun -opening-tag (tag bracket)
   (++ (opening-bracket)
       tag
@@ -51,7 +26,7 @@
   (++ (opening-bracket)
       tag
       (space)
-      (lutil-text:strip (attrs->str attrs))
+      (lutil-text:strip (xmplr-util:attrs->str attrs))
       bracket))
 
 (defun opening-tag (tag)
@@ -78,13 +53,12 @@
 (defun non-closing-tag (tag attrs)
   (-opening-tag tag attrs (closing-bracket)))
 
-
 ;;; Backwards-compatible aliases
 
 (defun attr-to-string (name value)
   "Deprecated; use attr->str instead."
-  (attr->str name value))
+  (xmplr-util:attr->str name value))
 
 (defun attrs-to-string (attrs)
   "Deprecated; use attrs->str instead."
-  (attrs->str attrs))
+  (xmplr-util:attrs->str attrs))

@@ -5,21 +5,6 @@
 (include-lib "ltest/include/ltest-macros.lfe")
 (include-lib "clj/include/predicates.lfe")
 
-(deftest attrs?
-  (is (exemplar:attrs? '(class "css")))
-  (is (exemplar:attrs? '(class "css" id "asdf-1")))
-  (is-not (exemplar:attrs? '()))
-  (is-not (exemplar:attrs? '(class "css" "id" "asdf-1")))
-  (is-not (exemplar:attrs? '(1 2 3 4))))
-
-(deftest attr->str
-  (is-equal "href=\"http://url\" "
-            (exemplar:attr->str 'href "http://url")))
-
-(deftest attrs->str
-  (is-equal "a=\"1\" b=\"2\" "
-            (exemplar:attrs->str '(a "1" b "2"))))
-
 (deftest opening-tag
   (is-equal "<a>"
             (exemplar:opening-tag "a")))
@@ -51,3 +36,13 @@
             (exemplar:self-closing-tag
               "img"
               (list 'class "pic" 'src "url"))))
+
+;;; Backwards-compatible aliases
+
+(deftest attr-to-string
+  (is-equal "href=\"http://url\" "
+            (exemplar:attr-to-string 'href "http://url")))
+
+(deftest attrs-to-string
+  (is-equal "a=\"1\" b=\"2\" "
+            (exemplar:attrs-to-string '(a "1" b "2"))))
