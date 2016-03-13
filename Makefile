@@ -42,14 +42,20 @@ docs-clean:
 	@echo "\nCleaning build directories ..."
 	@rm -rf $(GUIDE_BUILD_DIR) $(API_PROD_DIR) $(GUIDE_PROD_DIR)
 
-docs: clean compile docs-clean $(SLATE_GIT_HACK)
-	@echo "\nBuilding docs ...\n"
+docs-lodox:
 	@echo
 	@rebar3 as docs lfe lodox
+
+docs-slate:
 	@echo
 	@cd $(GUIDE_DIR) && bundle exec middleman build --clean
 	@mkdir $(GUIDE_PROD_DIR)
 	@cp -r $(GUIDE_BUILD_DIR)/* $(GUIDE_PROD_DIR)/
+
+docs: clean compile docs-clean $(SLATE_GIT_HACK)
+	@echo "\nBuilding docs ...\n"
+	@make docs-lodox
+	@make docs-slate
 
 devdocs: docs
 	@echo
