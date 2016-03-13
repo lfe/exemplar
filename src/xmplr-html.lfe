@@ -5,15 +5,15 @@
 (include-lib "exemplar/include/xmplr-html.lfe")
 
 (defun data->str
-  ((`(#(tag ,tag) #(attrs ()) #(content ())))
+  ((`(#(tag ,tag) #(attr ()) #(content ())))
     (exemplar-html:make-html (atom_to_list tag)))
-  ((`(#(tag ,tag) #(attrs ,attrs) #(content ())))
+  ((`(#(tag ,tag) #(attr ,attrs) #(content ())))
     (exemplar-html:make-html (atom_to_list tag) attrs))
-  ((`(#(tag ,tag) #(attrs ()) #(content ,content)))
+  ((`(#(tag ,tag) #(attr ()) #(content ,content)))
     (exemplar-html:make-html
       (atom_to_list tag)
       (content->str content)))
-  ((`(#(tag ,tag) #(attrs ,attrs) #(content ,content)))
+  ((`(#(tag ,tag) #(attr ,attrs) #(content ,content)))
     (exemplar-html:make-html
       (atom_to_list tag)
       attrs

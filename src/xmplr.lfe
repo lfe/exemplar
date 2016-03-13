@@ -15,7 +15,8 @@
 
 (defun make-data (tag attrs content)
   `(#(tag ,tag)
-    #(attrs ,attrs)
+    ;; xmerl uses attr so we do; it really should be attrs, though ...
+    #(attr ,attrs)
     #(content ,content)))
 
 (defun data->str

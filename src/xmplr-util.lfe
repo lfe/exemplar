@@ -29,7 +29,7 @@
         'false))))
 
 (defun has-element-names? (element)
-  (=:= (proplists:get_keys element) '(attrs content tag)))
+  (=:= (proplists:get_keys element) '(attr content tag)))
 
 (defun attrs? (data)
   "a list of attr/value key pairs has to have an even number of elements. The

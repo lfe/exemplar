@@ -7,8 +7,8 @@
 
 (deftest make-data-with-lists
   (is-equal '(#(tag ul)
-              #(attrs ())
-              #(content ((#(tag li) #(attrs ()) #(content "a"))
-                         (#(tag li) #(attrs ()) #(content "b"))
-                         (#(tag li) #(attrs ()) #(content "c")))))
+              #(attr ())
+              #(content ((#(tag li) #(attr ()) #(content "a"))
+                         (#(tag li) #(attr ()) #(content "b"))
+                         (#(tag li) #(attr ()) #(content "c")))))
             (ul (list (li "a") (li "b") (li "c")))))

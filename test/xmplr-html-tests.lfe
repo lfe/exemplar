@@ -36,4 +36,4 @@
 
 (deftest data->str-raw
   (is-equal "<pre class=\"lisp\">some code</pre>"
-            (xmplr-html:data->str '(#(tag pre) #(attrs (class "lisp")) #(content "some code")))))
+            (xmplr-html:data->str '(#(tag pre) #(attr (class "lisp")) #(content "some code")))))

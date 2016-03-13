@@ -22,21 +22,21 @@
 
 (deftest elements?
   (is-equal 'true (xmplr-util:elements?
-                    '((#(tag 1) #(attrs 2) #(content 3))
-                      (#(tag 1) #(attrs 2) #(content 3))
-                      (#(tag 1) #(attrs 2) #(content 3)))))
+                    '((#(tag 1) #(attr 2) #(content 3))
+                      (#(tag 1) #(attr 2) #(content 3))
+                      (#(tag 1) #(attr 2) #(content 3)))))
   (is-equal 'false (xmplr-util:elements?
-                     '((#(tag 1) #(attrs 2) #(content 3))
-                       (#(tag 1) #(attrs 2) #(content 3))
-                       (#(ntag 1) #(attrs 2) #(content 3))))))
+                     '((#(tag 1) #(attr 2) #(content 3))
+                       (#(tag 1) #(attr 2) #(content 3))
+                       (#(ntag 1) #(attr 2) #(content 3))))))
 
 (deftest element?
   (is-equal 'false (xmplr-util:element? '(#(a 1) #(b 2) #(c 3))))
-  (is-equal 'true (xmplr-util:element? '(#(tag 1) #(attrs 2) #(content 3)))))
+  (is-equal 'true (xmplr-util:element? '(#(tag 1) #(attr 2) #(content 3)))))
 
 (deftest has-element-names?
   (is-equal 'false (xmplr-util:has-element-names? '(#(a 1) #(b 2) #(c 3))))
-  (is-equal 'true (xmplr-util:has-element-names? '(#(tag 1) #(attrs 2) #(content 3)))))
+  (is-equal 'true (xmplr-util:has-element-names? '(#(tag 1) #(attr 2) #(content 3)))))
 
 (deftest all-2-tuples?
   (is-equal 'true (xmplr-util:all-2-tuples? '(#(a 1))))
