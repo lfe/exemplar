@@ -1,0 +1,37 @@
+== exemplar-xml ==
+make-xml/3
+make-xml/2
+make-xml/1
+
+== exemplar-util ==
+get-versions/0
+get-exemplar-version/0
+
+== exemplar-html-util ==
+make-html/3
+make-html/2
+handle-doctype/1
+doctype/2
+doctype/0
+make-html/1
+
+== exemplar-html ==
+noop/0
+
+== exemplar ==
+non-closing-tag/2
+non-closing-tag/1
+self-closing-tag/2
+self-closing-tag/1
+closing-tag/1
+opening-tag/2
+opening-tag/1
+-opening-tag/3
+-opening-tag/2
+attrs-to-string/1
+attr-to-string/2
+self-closing-bracket/0
+closing-bracket/0
+opening-bracket/0
+slash/0
+space/0
