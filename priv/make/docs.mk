@@ -16,11 +16,11 @@ docs-setup:
 	@cd $(DOCS_DIR) && bundle install
 
 docs-clean:
+	@rebar3 clean -a -p doc
 	@echo "\nCleaning build directories ..."
 	@rm -rf $(GUIDE_BUILD_DIR) $(API_PROD_DIR) $(GUIDE_PROD_DIR)
 
-docs-lodox:
-	@echo
+docs-lodox: clean compile docs-clean
 	@rebar3 lfe lodox
 
 docs-slate:
