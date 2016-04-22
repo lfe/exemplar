@@ -3,12 +3,15 @@
 
 (include-lib "clj/include/predicates.lfe")
 
-(defun get-exemplar-version ()
-  (lutil:get-app-src-version "src/exemplar.app.src"))
+(defun get-version ()
+  (lr3-ver-util:get-app-version 'exemplar))
 
 (defun get-versions ()
-  (++ (lutil:get-version)
-      `(#(exemplar ,(get-exemplar-version)))))
+  (++ (lr3-ver-util:get-versions)
+      `(#(kla ,(lr3-ver-util:get-app-version 'kla))
+        #(clj ,(lr3-ver-util:get-app-version 'clj))
+        #(lutil ,(lr3-ver-util:get-app-version 'lutil))
+        #(exemplar ,(get-version)))))
 
 (defun elements?
   (('())
