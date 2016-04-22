@@ -5,8 +5,8 @@
 
 [![][juggernaut-tiny]][juggernaut-large]
 
-[juggernaut-tiny]: resources/images/juggernaut-tiny.png
-[juggernaut-large]: resources/images/juggernaut-large.png
+[juggernaut-tiny]: priv/images/juggernaut-tiny.png
+[juggernaut-large]: priv/images/juggernaut-large.png
 
 *Markup Language Expressions for LFE: creating HTML with S-expressions on the Erlang VM.*
 
@@ -28,7 +28,7 @@
 
 [![][html5_logo]][html5_logo]
 
-[html5_logo]: resources/images/HTML5_Logo_tiny.png
+[html5_logo]: priv/images/HTML5_Logo_tiny.png
 
 Right now, only HTML5 is supported. Feel free to submit pull requests to support
 older/different tags/elements.
