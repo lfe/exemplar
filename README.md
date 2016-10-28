@@ -1,14 +1,11 @@
 # exemplar [![Build Status][travis-badge]][travis]
 
-[travis]: https://travis-ci.org/lfex/exemplar
-[travis-badge]: https://travis-ci.org/lfex/exemplar.png?branch=master
+[![Build Status][travis badge]][travis] [![LFE Versions][lfe badge]][lfe] [![Erlang Versions][erlang badge]][versions] [![Tags][github tags badge]][github tags] [![Downloads][hex downloads]][hex package]
 
 [![][juggernaut-tiny]][juggernaut-large]
 
-[juggernaut-tiny]: priv/images/juggernaut-tiny.png
-[juggernaut-large]: priv/images/juggernaut-large.png
-
 *Markup Language Expressions for LFE: creating HTML with S-expressions on the Erlang VM.*
+
 
 #### Contents
 
@@ -101,3 +98,24 @@ Copyright © 2014-2016 Duncan McGreggor
 
 Distributed under the Apache License, Version 2.0.
 ```
+
+
+<!-- Named page links below: /-->
+
+[juggernaut-tiny]: priv/images/juggernaut-tiny.png
+[juggernaut-large]: priv/images/juggernaut-large.png
+[org]: https://github.com/lfex
+[github]: https://github.com/lfex/exemplar
+[gitlab]: https://gitlab.com/lfex/exemplar
+[travis]: https://travis-ci.org/lfex/exemplar
+[travis badge]: https://img.shields.io/travis/lfex/exemplar.svg
+[lfe]: https://github.com/rvirding/lfe
+[lfe badge]: https://img.shields.io/badge/lfe-1.2.0-blue.svg
+[erlang badge]: https://img.shields.io/badge/erlang-R15%20to%2019.1-blue.svg
+[versions]: https://github.com/lfex/exemplar/blob/master/.travis.yml
+[github tags]: https://github.com/lfex/exemplar/tags
+[github tags badge]: https://img.shields.io/github/tag/lfex/exemplar.svg
+[github downloads]: https://img.shields.io/github/downloads/lfex/exemplar/total.svg
+[hex badge]: https://img.shields.io/hexpm/v/exemplar.svg?maxAge=2592000
+[hex package]: https://hex.pm/packages/exemplar
+[hex downloads]: https://img.shields.io/hexpm/dt/exemplar.svg
