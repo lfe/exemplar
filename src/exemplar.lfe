@@ -1,7 +1,6 @@
 (defmodule exemplar
   (export all))
 
-(include-lib "clj/include/predicates.lfe")
 (include-lib "exemplar/include/xml-macros.lfe")
 
 (defun space () " ")

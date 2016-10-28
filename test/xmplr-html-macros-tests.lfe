@@ -1,6 +1,5 @@
 (defmodule xmplr-html-macros-tests
-  (behaviour ltest-unit)
-  (export all))
+  (behaviour ltest-unit))
 
 (include-lib "ltest/include/ltest-macros.lfe")
 (include-lib "exemplar/include/xmplr-html.lfe")

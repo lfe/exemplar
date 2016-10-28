@@ -5,7 +5,7 @@
   {description, "Markup Language Expressions for LFE: creating HTML with S-expressions on the Erlang VM."},
 
   %% The version of the application
-  {vsn, "0.4.2"},
+  {vsn, "0.5.0-rc1"},
 
   %% All modules used by the application.
   {modules,
@@ -32,6 +32,15 @@
 
   %% configuration parameters similar to those in the config file specified
   %% on the command line. can be fetched with gas:get_env
-  {env, []}
- ]
-}.
+  {env, []},
+
+  %% Package metadata:
+  {pkg_name, exemplar},
+  {maintainers, ["Duncan McGreggor"]},
+  {licenses, ["Apache-2"]},
+  {links,
+   [{"GitHub", "https://github.com/lfex/exemplar"},
+    {"Gitlab", "https://gitlab.com/lfex/exemplar"},
+    {"Hex", "https://hex.pm/packages/exemplar"}
+   ]}
+ ]}.

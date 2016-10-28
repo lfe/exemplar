@@ -1,7 +1,6 @@
 (defmodule exemplar-html
   (export all))
 
-(include-lib "clj/include/predicates.lfe")
 (include-lib "exemplar/include/html-macros.lfe")
 
 (defun make-html (tag)
@@ -18,7 +17,7 @@
     (cond
      ((xmplr-util:attrs? content-or-attrs)
       (make-html "script" content-or-attrs ""))
-     ((string? content-or-attrs)
+     ((clj:string? content-or-attrs)
       (make-html "script" '() content-or-attrs))))
   ((tag content-or-attrs)
    (let ((data (exemplar-xml:make-xml tag content-or-attrs)))
@@ -29,11 +28,11 @@
          (++ (exemplar:self-closing-tag tag content-or-attrs)))
        ;; if it's a string, use the make-xml/2 function, since that's going to
        ;; be content
-       ((string? content-or-attrs)
+       ((clj:string? content-or-attrs)
          data)
        ;; if it's a list of elements (i.e., not a list of attrs), use the same
        ;; function, but flatten the result
-       ((list? content-or-attrs)
+       ((clj:list? content-or-attrs)
          (lists:flatten data))))))
 
 (defun make-html (tag attrs content)

@@ -1,7 +1,6 @@
 (defmodule xmplr-html
   (export all))
 
-(include-lib "clj/include/predicates.lfe")
 (include-lib "exemplar/include/xmplr-html.lfe")
 
 (defun data->str
@@ -23,7 +22,7 @@
 
 (defun content->str (content)
   (cond
-    ((string? content)
+    ((clj:string? content)
       content)
     ((xmplr-util:attrs? content)
       content)

@@ -1,9 +1,7 @@
 (defmodule exemplar-tests
-  (behaviour ltest-unit)
-  (export all))
+  (behaviour ltest-unit))
 
 (include-lib "ltest/include/ltest-macros.lfe")
-(include-lib "clj/include/predicates.lfe")
 
 (deftest opening-tag
   (is-equal "<a>"
