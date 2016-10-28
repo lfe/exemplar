@@ -1,16 +1,12 @@
 (defmodule xmplr-util
   (export all))
 
-(include-lib "clj/include/predicates.lfe")
-
 (defun get-version ()
   (lr3-ver-util:get-app-version 'exemplar))
 
 (defun get-versions ()
   (++ (lr3-ver-util:get-versions)
-      `(#(kla ,(lr3-ver-util:get-app-version 'kla))
-        #(clj ,(lr3-ver-util:get-app-version 'clj))
-        #(lutil ,(lr3-ver-util:get-app-version 'lutil))
+      `(#(lutil ,(lr3-ver-util:get-app-version 'lutil))
         #(exemplar ,(get-version)))))
 
 (defun elements?
@@ -43,7 +39,10 @@
   (let* ((len (length data))
          (`#(,names ,values) (lutil-type:partition-list data))
          (evens-atoms? (== (length names) (length values))))
-    (and (list? data) (and (> len 0) (and (even? len) evens-atoms?)))))
+    (and (clj:list? data)
+         (and (clj:number? len)
+              (and (> len 0)
+                   evens-atoms?)))))
 
 (defun all-2-tuples?
   (('())
