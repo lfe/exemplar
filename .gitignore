@@ -8,6 +8,7 @@ debug-*
 ebin/*
 erl_crash.dump
 rebar3.*dump
+rebar.lock
 .rebar
 bin
 _build/*
