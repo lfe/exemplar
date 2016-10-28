@@ -75,7 +75,7 @@ Just add it to your ``rebar.config`` deps:
 ```erlang
 {deps, [
     ...
-    {exemplar, ".*", {git, "git@github.com:lfex/exemplar.git", {tag, "x.y.z"}}
+    {exemplar, {git, "git://github.com/lfex/exemplar.git", {tag, "0.4.2"}}
   ]}.
 ```
 
