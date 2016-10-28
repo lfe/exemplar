@@ -1,9 +1,7 @@
 (defmodule xmplr-html-tests
-  (behaviour ltest-unit)
-  (export all))
+  (behaviour ltest-unit))
 
 (include-lib "ltest/include/ltest-macros.lfe")
-(include-lib "clj/include/predicates.lfe")
 (include-lib "exemplar/include/xmplr-html.lfe")
 
 (deftest data->str
