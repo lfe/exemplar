@@ -1,4 +1,4 @@
-# exemplar [![Build Status][travis-badge]][travis]
+# exemplar
 
 [![Build Status][travis badge]][travis] [![LFE Versions][lfe badge]][lfe] [![Erlang Versions][erlang badge]][versions] [![Tags][github tags badge]][github tags] [![Downloads][hex downloads]][hex package]
 
