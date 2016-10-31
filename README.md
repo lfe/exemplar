@@ -8,7 +8,7 @@
 
 *Markup Language Expressions for LFE: creating XML/HTML with S-expressions on the Erlang VM*
 
-[![][juggernaut-tiny]][juggernaut-large]
+[![Project Logo][logo]][logo-large]
 
 
 #### Contents
@@ -97,17 +97,15 @@ Documentation for Exemplar is published to the following locations:
 
 ## License [&#x219F;](#contents)
 
-```
 Copyright © 2014-2016 Duncan McGreggor
 
 Distributed under the Apache License, Version 2.0.
-```
 
 
 <!-- Named page links below: /-->
 
-[juggernaut-tiny]: priv/images/juggernaut-tiny.png
-[juggernaut-large]: priv/images/juggernaut-large.png
+[logo]: priv/images/juggernaut-tiny.png
+[logo-large]: priv/images/juggernaut-large.png
 [org]: https://github.com/lfex
 [github]: https://github.com/lfex/exemplar
 [gitlab]: https://gitlab.com/lfex/exemplar
