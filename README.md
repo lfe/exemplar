@@ -1,10 +1,14 @@
 # exemplar
 
-[![Build Status][travis badge]][travis] [![LFE Versions][lfe badge]][lfe] [![Erlang Versions][erlang badge]][versions] [![Tags][github tags badge]][github tags] [![Downloads][hex downloads]][hex package]
+[![Build Status][travis badge]][travis]
+[![LFE Versions][lfe badge]][lfe]
+[![Erlang Versions][erlang badge]][versions]
+[![Tags][github tags badge]][github tags]
+[![Downloads][hex downloads]][hex package]
+
+*Markup Language Expressions for LFE: creating XML/HTML with S-expressions on the Erlang VM*
 
 [![][juggernaut-tiny]][juggernaut-large]
-
-*Markup Language Expressions for LFE: creating HTML with S-expressions on the Erlang VM.*
 
 
 #### Contents
