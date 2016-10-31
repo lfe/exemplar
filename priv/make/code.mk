@@ -85,3 +85,12 @@ build-all: build-github build-gitlab build-hexpm
 
 publish: clean
 	rebar3 as hexpm hex publish
+
+setup-rebar3:
+	wget https://s3.amazonaws.com/rebar3/rebar3
+	chmod +x rebar3
+
+setup-hexpm: REBAR_HOME_CONFIG = ~/.config/rebar3/
+setup-hexpm:
+	mkdir -p $(REBAR_HOME_CONFIG)
+	echo "{plugins, [rebar3_hex]}." > $(REBAR_HOME_CONFIG)/rebar.config

@@ -1,8 +1,8 @@
 language: erlang
 install: true
 before_script:
-  - wget https://s3.amazonaws.com/rebar3/rebar3
-  - chmod +x rebar3
+  - make setup-rebar3
+  - make setup-hexpm
 env: PATH=".:$PATH"
 script:
   - make build-all
