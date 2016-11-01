@@ -35,7 +35,7 @@ travis:
 
 repl:
 	$(REBAR3) as $(REBAR_PROFILE) compile
-	$(LFE) -pa `$(REBAR) as $(REBAR_PROFILE) path -s " -pa "`
+	$(LFE) -pa `$(REBAR3) as $(REBAR_PROFILE) path -s " -pa "`
 
 shell:
 	@$(REBAR3) shell
@@ -83,8 +83,8 @@ build-hexpm: clean
 	@echo "Building using Hex.pm Packages ..."
 	@echo "=============================="
 	@echo
-	$(REBAR) as hexpm compile
-	@$(REBAR) as hexpm lock
+	$(REBAR3) as hexpm compile
+	@$(REBAR3) as hexpm lock
 
 build-all: build-github build-gitlab build-hexpm
 
@@ -95,7 +95,7 @@ setup-rebar3:
 	wget https://s3.amazonaws.com/rebar3/rebar3
 	chmod +x rebar3
 
-setup-hexpm: REBAR_HOME_CONFIG = ~/.config/rebar3/
+setup-hexpm: REBAR_HOME_CONFIG = ~/.config/rebar3
 setup-hexpm:
 	mkdir -p $(REBAR_HOME_CONFIG)
 	echo "{plugins, [rebar3_hex]}." > $(REBAR_HOME_CONFIG)/rebar.config

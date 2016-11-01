@@ -16,6 +16,7 @@ otp_release:
   - R16B03-1
   - R15B03
 matrix:
+  # disabled due to Hex.pm failing on R15
   exclude:
   - otp_release: R15B03
     env: REBAR_BUILD=hexpm
