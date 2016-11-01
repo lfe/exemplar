@@ -5,7 +5,7 @@
   {description, "Markup Language Expressions for LFE: creating XML/HTML with S-expressions on the Erlang VM"},
 
   %% The version of the application
-  {vsn, "0.5.0-rc1"},
+  {vsn, "0.5.0-rc2"},
 
   %% All modules used by the application.
   {modules,
