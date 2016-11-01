@@ -1,5 +1,5 @@
 compile:
-	rebar3 compile
+	$(REBAR) compile
 
 check:
 	@echo
@@ -7,7 +7,7 @@ check:
 	@echo "Running tests using Github Sources ..."
 	@echo "=================================="
 	@echo
-	rebar3 as test lfe test
+	$(REBAR) as test lfe test
 
 check-gitlab:
 	@echo
@@ -15,7 +15,7 @@ check-gitlab:
 	@echo "Running tests using Gitlab Sources ..."
 	@echo "=================================="
 	@echo
-	rebar3 as gitlab lfe test
+	$(REBAR) as gitlab lfe test
 
 check-hexpm: clean
 	@echo
@@ -23,26 +23,31 @@ check-hexpm: clean
 	@echo "Running tests using Hex.pm Packages ..."
 	@echo "==================================="
 	@echo
-	@rebar3 as hexpm lfe clean
-	rebar3 as hexpm lfe test
+	@$(REBAR) as hexpm lfe clean
+	$(REBAR) as hexpm lfe test
 
 check-all: check check-gitlab check-hexpm
 
+travis:
+	@if [ "$(REBAR_BUILD)" = "github" ]; then make build-github; make check; fi;
+	@if [ "$(REBAR_BUILD)" = "gitlab" ]; then make build-gitlab; make check-gitlab; fi;
+	@if [ "$(REBAR_BUILD)" = "hexpm" ]; then make build-hexpm; make check-hexpm; fi;
+
 repl:
-	rebar3 as $(REBAR_PROFILE) compile
-	$(LFE) -pa `rebar3 as $(REBAR_PROFILE) path -s " -pa "`
+	$(REBAR) as $(REBAR_PROFILE) compile
+	$(LFE) -pa `$(REBAR) as $(REBAR_PROFILE) path -s " -pa "`
 
 shell:
-	@rebar3 shell
+	@$(REBAR) shell
 
 clean:
-	@rebar3 clean
+	@$(REBAR) clean
 	@rm -rf ebin/* _build/default/lib/$(PROJECT) rebar.lock \
 		rebar3.crashdump \
 		$(HOME)/.cache/rebar3/hex/default/packages/*
 
 clean-all: clean
-	@rebar3 as dev lfe clean
+	@$(REBAR) as dev lfe clean
 
 push:
 	git push github master
@@ -60,8 +65,8 @@ build-github: clean
 	@echo "Building using Github Sources ..."
 	@echo "============================="
 	@echo
-	rebar3 compile
-	rebar3 lock
+	$(REBAR) compile
+	@$(REBAR) lock
 
 build-gitlab: clean
 	@echo
@@ -69,8 +74,8 @@ build-gitlab: clean
 	@echo "Building using Gitlab Sources ..."
 	@echo "============================="
 	@echo
-	rebar3 as gitlab compile
-	rebar3 as gitlab lock
+	$(REBAR) as gitlab compile
+	@$(REBAR) as gitlab lock
 
 build-hexpm: clean
 	@echo
@@ -78,13 +83,13 @@ build-hexpm: clean
 	@echo "Building using Hex.pm Packages ..."
 	@echo "=============================="
 	@echo
-	rebar3 as hexpm compile
-	rebar3 as hexpm lock
+	$(REBAR) as hexpm compile
+	@$(REBAR) as hexpm lock
 
 build-all: build-github build-gitlab build-hexpm
 
 publish: clean
-	rebar3 as hexpm hex publish
+	$(REBAR) as hexpm hex publish
 
 setup-rebar3:
 	wget https://s3.amazonaws.com/rebar3/rebar3
