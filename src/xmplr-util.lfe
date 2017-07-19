@@ -1,14 +1,6 @@
 (defmodule xmplr-util
   (export all))
 
-(defun get-version ()
-  (lr3-ver-util:get-app-version 'exemplar))
-
-(defun get-versions ()
-  (++ (lr3-ver-util:get-versions)
-      `(#(lutil ,(lr3-ver-util:get-app-version 'lutil))
-        #(exemplar ,(get-version)))))
-
 (defun elements?
   (('())
     'false)
@@ -37,7 +29,7 @@
 
   If these criteria are not met, the list is not an attr collection."
   (let* ((len (length data))
-         (`#(,names ,values) (lutil-type:partition-list data))
+         (`#(,names ,values) (lists:partition #'is_atom/1 data))
          (evens-atoms? (== (length names) (length values))))
     (and (clj:list? data)
          (and (clj:number? len)
@@ -60,6 +52,6 @@
     (++ name "=\"" value "\" ")))
 
 (defun attrs->str (attrs)
-  (let ((`#(,names ,values) (lutil-type:partition-list attrs)))
+  (let ((`#(,names ,values) (lists:partition #'is_atom/1 attrs)))
     (lists:concat
       (lists:zipwith #'attr->str/2 names values))))

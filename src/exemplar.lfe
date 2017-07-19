@@ -25,7 +25,7 @@
   (++ (opening-bracket)
       tag
       (space)
-      (lutil-text:strip (xmplr-util:attrs->str attrs))
+      (strip (xmplr-util:attrs->str attrs))
       bracket))
 
 (defun opening-tag (tag)
@@ -61,3 +61,12 @@
 (defun attrs-to-string (attrs)
   "Deprecated; use attrs->str instead."
   (xmplr-util:attrs->str attrs))
+
+;;; Internal functions
+
+(defun strip (string)
+  (re:replace
+     string
+     "(^\\s+)|(\\s+$)"
+     ""
+     '(global #(return list))))
