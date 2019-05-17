@@ -9,6 +9,15 @@ check:
 	@echo
 	$(REBAR3) as test lfe test
 
+build-github: clean
+	@echo
+	@echo "============================="
+	@echo "Building using Github Sources ..."
+	@echo "============================="
+	@echo
+	$(REBAR3) compile
+	@$(REBAR3) lock
+	
 check-gitlab:
 	@echo
 	@echo "=================================="
