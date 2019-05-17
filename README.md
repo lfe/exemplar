@@ -112,8 +112,8 @@ Distributed under the Apache License, Version 2.0.
 [travis]: https://travis-ci.org/lfex/exemplar
 [travis badge]: https://img.shields.io/travis/lfex/exemplar.svg
 [lfe]: https://github.com/rvirding/lfe
-[lfe badge]: https://img.shields.io/badge/lfe-1.2.0-blue.svg
-[erlang badge]: https://img.shields.io/badge/erlang-R15%20to%2019.1-blue.svg
+[lfe badge]: https://img.shields.io/badge/lfe-1.3.0-blue.svg
+[erlang badge]: https://img.shields.io/badge/erlang-17.5%20to%2022.0-blue.svg
 [versions]: https://github.com/lfex/exemplar/blob/master/.travis.yml
 [github tags]: https://github.com/lfex/exemplar/tags
 [github tags badge]: https://img.shields.io/github/tag/lfex/exemplar.svg
