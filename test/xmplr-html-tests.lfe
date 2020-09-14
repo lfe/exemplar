@@ -2,7 +2,7 @@
   (behaviour ltest-unit))
 
 (include-lib "ltest/include/ltest-macros.lfe")
-(include-lib "exemplar/include/xmplr-html.lfe")
+(include-lib "include/xmplr-html.lfe")
 
 (deftest data->str
   (is-equal "<br />"

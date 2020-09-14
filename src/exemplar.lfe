@@ -1,7 +1,7 @@
 (defmodule exemplar
   (export all))
 
-(include-lib "exemplar/include/xml-macros.lfe")
+(include-lib "include/xml-macros.lfe")
 
 (defun space () " ")
 

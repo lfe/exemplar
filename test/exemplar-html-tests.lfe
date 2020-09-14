@@ -2,7 +2,7 @@
   (behaviour ltest-unit))
 
 (include-lib "ltest/include/ltest-macros.lfe")
-(include-lib "exemplar/include/html-macros.lfe")
+(include-lib "include/html-macros.lfe")
 
 (deftest make-html
   (is-equal "<br />"

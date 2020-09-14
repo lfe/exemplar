@@ -1,7 +1,7 @@
 (defmodule xmplr-html
   (export all))
 
-(include-lib "exemplar/include/xmplr-html.lfe")
+(include-lib "include/xmplr-html.lfe")
 
 (defun data->str
   ((`(#(tag ,tag) #(attr ()) #(content ())))

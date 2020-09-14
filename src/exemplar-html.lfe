@@ -1,7 +1,7 @@
 (defmodule exemplar-html
   (export all))
 
-(include-lib "exemplar/include/html-macros.lfe")
+(include-lib "include/html-macros.lfe")
 
 (defun make-html (tag)
   (exemplar-xml:make-xml tag))
